@@ -12,7 +12,7 @@ class Bot(DesktopBot):
         Path(path_dir_alerts).mkdir(exist_ok=True)
 
         #READING THE DISASTER ALERTS WORKSHEET AND FILTERING THE DATA
-        data = pd.read_excel('disaster_alert.xlsx')
+        data = pd.read_excel(self.get_resource_abspath('disaster_alert.xlsx'))
         data.dropna(axis='columns', how='all')
         print(data)
 
@@ -25,17 +25,17 @@ class Bot(DesktopBot):
         #FOR EACH LINE OF THE WORKSHEET, SEARCH THE EVENT DESCRIPTION AND COLLECT THE INFORMATION
         for index, row in data.iterrows():
             for col in data.columns:
-                if str(col) == 'Event':
+                if 'Event' in str(col):
                     event = str(row[col])
-                elif str(col).__contains__("From"):
+                elif "From" in str(col):
                     from_date = datetime.strftime(row[col], '%Y-%m-%d')
-                elif str(col).__contains__("To"):
+                elif "To" in str(col):
                     to_date = datetime.strftime(row[col], '%Y-%m-%d')
-                elif str(col).__contains__("Level"):
+                elif "Level" in str(col):
                     level = str(row[col])
-                elif str(col).__contains__("Severity"):
+                elif "Severity" in str(col):
                     severity = str(row[col])
-                elif str(col).__contains__("Country"):
+                elif "Country" in str(col):
                     country = str(row[col])
 
             #CREATING FOLDER WHERE MAP PRINT AND RESULT FILE WILL BE SAVED
@@ -50,25 +50,25 @@ class Bot(DesktopBot):
 
             #SELECTS THE GLOBAL DISASTER TYPE 
             self.tab()
-            if event.__contains__("Earthquakes"):
+            if "Earthquakes" in event:
                 self.space(1000)
             self.tab()
-            if event.__contains__("Tsunamis"):
+            if "Tsunamis" in event:
                 self.space(1000)
             self.tab()
-            if event.__contains__("Floods"):
+            if "Floods" in event:
                 self.space(1000)
             self.tab()
-            if event.__contains__("Cyclones"):
+            if "Cyclones" in event:
                 self.space(1000)
             self.tab()
-            if event.__contains__("Volcanoes"):
+            if "Volcanoes" in event:
                 self.space(1000)
             self.tab()
-            if event.__contains__("Droughts"):
+            if "Droughts" in event:
                 self.space(1000)
             self.tab()
-            if event.__contains__("Forest Fires"):
+            if "Forest Fires" in event:
                 self.space(1000)
 
             #TYPE THE DATES FOR THE EVENT PERIOD 

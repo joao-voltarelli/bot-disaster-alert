@@ -18,7 +18,7 @@ with open(path.join(here, 'requirements.txt')) as requirements_file:
 
 
 setup(
-    name="DisasterAlertBot-Python",
+    name="DisasterAlertBot",
     version=version,
     description="sidequest bot",
     long_description=readme,
@@ -26,7 +26,7 @@ setup(
     packages=find_packages(exclude=['docs', 'tests']),
     include_package_data=True,
     package_data={
-        "DisasterAlertBot-Python": [
+        "DisasterAlertBot": [
             # When adding files here, remember to update MANIFEST.in as well,
             # or else they will not be included in the distribution on PyPI!
             # 'path/to/data_file',
