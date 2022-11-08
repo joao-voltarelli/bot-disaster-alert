@@ -117,7 +117,7 @@ class Bot(DesktopBot):
             if not self.find( "submit", matching=0.97, waiting_time=10000):
                 self.not_found("submit")
             self.click(2000)
-            self.scroll_down(500)
+            self.scroll_down(320)
             self.wait(25000)
 
             #PRINT THE MAP AREA
